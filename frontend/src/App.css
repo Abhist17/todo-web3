@@ -5,116 +5,145 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .app-container {
   width: 100%;
-  max-width: 500px;
-  padding: 20px;
+  max-width: 520px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1e1e1e;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   text-align: center;
   margin-bottom: 8px;
-  background: linear-gradient(to right, #00f2ff, #00ff9d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #fff;
 }
 
 .subtitle {
   text-align: center;
-  color: #aaa;
-  margin-bottom: 30px;
-  font-size: 1rem;
+  color: #999;
+  font-size: 0.95rem;
+  margin-bottom: 32px;
 }
 
 .connect-btn {
   width: 100%;
   padding: 16px;
-  font-size: 1.2rem;
-  background: linear-gradient(to right, #00f2ff, #00ff9d);
-  color: #000;
+  background: #333;
+  color: #fff;
   border: none;
   border-radius: 12px;
+  font-size: 1.1rem;
   cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s;
+  transition: background 0.3s;
 }
 
 .connect-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 242, 255, 0.3);
+  background: #444;
 }
 
-.wallet-info {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.wallet-address {
-  background: rgba(0, 242, 255, 0.1);
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-family: monospace;
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
   font-size: 0.9rem;
-  color: #00f2ff;
 }
 
-.add-todo {
+.wallet {
+  color: #aaa;
+}
+
+.deployed {
+  background: #0a5;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.add-section {
   display: flex;
   gap: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
-.add-todo input {
+.add-section input {
   flex: 1;
-  padding: 16px;
-  border: none;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  padding: 14px;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 10px;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
-.add-todo input::placeholder {
-  color: #888;
+.add-section input::placeholder {
+  color: #777;
 }
 
-.add-todo button {
+.add-section button {
   padding: 0 24px;
-  background: linear-gradient(to right, #00ff9d, #00f2ff);
-  color: black;
+  background: #555;
+  color: white;
   border: none;
-  border-radius: 12px;
-  font-weight: bold;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s;
+  font-weight: bold;
 }
 
-.add-todo button:hover {
-  transform: scale(1.05);
+.add-section button:hover {
+  background: #666;
 }
 
-.add-todo button:disabled {
-  opacity: 0.6;
+.add-section button:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
+}
+
+.loader {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+.todo-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  color: #f55;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.clear-btn:hover {
+  text-decoration: underline;
 }
 
 .todo-list {
@@ -125,51 +154,63 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 16px 20px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  transition: all 0.3s;
-  cursor: pointer;
+  background: #2a2a2a;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: all 0.2s;
 }
 
 .todo-item:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+  background: #333;
 }
 
-.todo-item.completed .todo-text {
-  text-decoration: line-through;
-  color: #888;
+.todo-item.completed {
+  opacity: 0.7;
 }
 
 .todo-text {
   flex: 1;
-  font-size: 1.1rem;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn, .save-btn {
+  background: none;
+  border: none;
+  color: #4a9eff;
+  cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .delete-btn {
-  background: #ff3b30;
-  color: white;
+  background: none;
   border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  color: #f55;
   font-size: 1.4rem;
   cursor: pointer;
-  transition: all 0.2s;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.delete-btn:hover {
-  background: #ff2000;
-  transform: scale(1.1);
-}
-
-.empty, .loading {
+.empty-state {
   text-align: center;
-  color: #888;
+  color: #777;
   font-style: italic;
-  margin: 30px 0;
+  padding: 40px 0;
 }
 
 .footer {
@@ -180,10 +221,10 @@ h1 {
 }
 
 .footer a {
-  color: #00f2ff;
-  text-decoration: none;
+  color: #888;
+  text-decoration: underline;
 }
 
 .footer a:hover {
-  text-decoration: underline;
+  color: #aaa;
 }
